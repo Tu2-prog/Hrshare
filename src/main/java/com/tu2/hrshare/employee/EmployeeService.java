@@ -1,21 +1,21 @@
 package com.tu2.hrshare.employee;
 
-import java.time.LocalDate;
-import java.time.Month;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class EmployeeService {
+
+    private final EmployeeRepository employeeRepository;
+
+    @Autowired
+    public EmployeeService(EmployeeRepository employeeRepository) {
+        this.employeeRepository = employeeRepository;
+    }
+
     public List<Employee> getEmployees() {
-        return List.of(
-            new Employee(1L,
-                         "Mariam", 
-                         "mariam@mariam.com", 
-                         LocalDate.of(2000, Month.APRIL, 5),
-                         21
-            )
-        );
+        return employeeRepository.findAll();
     }
 }
