@@ -2,9 +2,28 @@ package com.tu2.hrshare.employee;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
+@Entity
+@Table
 public class Employee {
-    private long id;
+
+    @Id
+    @SequenceGenerator(
+        name = "employee_sequence",
+        sequenceName = "employee_sequence",
+        allocationSize = 1
+    )
+    @GeneratedValue(
+        strategy = GenerationType.SEQUENCE,
+        generator = "employee_sequence"
+    )
+    private Long id;
     private String name;
     private String email;
     private LocalDate dateOfBirth;
