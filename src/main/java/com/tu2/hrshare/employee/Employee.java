@@ -35,13 +35,24 @@ public class Employee {
     @Transient
     private Integer age;
 
+    /**
+     * Class constructor for Employee entity.
+     * @param email
+     * @param dateOfBirth
+     */
     public Employee(long id, String name, String email, LocalDate dateOfBirth){
         this.id = id;
         this.name = name;
         this.email = email;
         this.dateOfBirth = dateOfBirth;
     }
-
+    
+    /**
+     * Class constructor for the Employee without id.
+     * @param name
+     * @param email
+     * @param dateOfBirth
+     */
     public Employee(String name, String email, LocalDate dateOfBirth) {
         this.name = name;
         this.email = email;
@@ -49,46 +60,90 @@ public class Employee {
     }
 
 
+    
+    /** Getter function for ID
+     * @return long
+     */
     public long getId() {
         return id;
     }
 
+    
+    /** Setter function for ID
+     * @param id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    
+    /** Getter function for Name
+     * @return String
+     */
     public String getName() {
         return name;
     }
 
+    
+    /** Setter function for Name
+     * @param name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    
+    /** Getter function for email 
+     * @return String
+     */
     public String getEmail() {
         return email;
     }
 
+    
+    /** Setter function for email
+     * @param email
+     */
     public void setEmail(String email) {
         this.email = email;
     }
 
+    
+    /** Getter function for the data of birth 
+     * @return LocalDate
+     */
     public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
+    
+    /** Setter function for the data of birth
+     * @param dateOfBirth
+     */
     public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 
+    
+    /** Getter function for the Age 
+     * @return Integer
+     */
     public Integer getAge() {
         return (int) ChronoUnit.YEARS.between(this.dateOfBirth, LocalDate.now());
     }
 
+    
+    /** Setter function for the age
+     * @param age
+     */
     public void setAge(Integer age) {
         this.age = age;
     }
 
+    
+    /** Instance operation to print out the object's attributes and its values.
+     * @return String
+     */
     @Override
     public String toString() {
         return "Employee [id=" + id + ", name=" + name + ", email=" + email + ", dateOfBirth=" + dateOfBirth + ", age="
