@@ -15,7 +15,7 @@ public class EmployeeController {
     private final EmployeeService employeeService;
 
     /**
-     * Class constructor fot eh Employeeservice.
+     * Class constructor for the Employeeservice.
      * @param employeeService
      */
     public EmployeeController(EmployeeService employeeService) {

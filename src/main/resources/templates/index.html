@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/index.css">
+    <title>HrShare</title>
+</head>
+<body>
+<h1>My first spring boot application.</h1>
+<!-- Assuming you pass the list of objects as 'employees' to the template -->
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Date of Birth</th>
+        <th>E-Mail</th>
+    </tr>
+    <!-- Iterate over the list of employees -->
+    <tr th:each="employee : ${employees}">
+        <!-- Populate table rows with employee data -->
+        <td th:text="${employee.id}">1</td>
+        <td th:text="${employee.name}">John Doe</td>
+        <td th:text="${employee.dateOfBirth}">1990-01-01</td>
+        <td th:text="${employee.email}">john@example.com</td>
+    </tr>
+</table>
+</body>
+</html>
