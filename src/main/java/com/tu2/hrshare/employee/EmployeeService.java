@@ -6,6 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/**
+ * Service class providing helper methods interacting with the employee database.
+ */
 @Service
 public class EmployeeService {
 
@@ -13,7 +16,7 @@ public class EmployeeService {
 
     /**
      * Class constructor for the EmployeeService
-     * @param employeeRepository
+     * @param employeeRepository The Spring Data Repository for the Employee database.
      */
     @Autowired
     public EmployeeService(EmployeeRepository employeeRepository) {
@@ -22,7 +25,7 @@ public class EmployeeService {
 
     /**
      * Function to get all employees in the database.
-     * @return
+     * @return List<Employee>
      */
     public List<Employee> getEmployees() {
         return employeeRepository.findAll();
@@ -30,7 +33,7 @@ public class EmployeeService {
 
     /**
      * Insert a new employee object into the database.
-     * @param employee
+     * @param employee The new employee to be added into the database.
      */
     public void addNewEmployee(Employee employee) {
         Optional<Employee> employeeByEmail = employeeRepository.findEmployeeByEmail(employee.getEmail());

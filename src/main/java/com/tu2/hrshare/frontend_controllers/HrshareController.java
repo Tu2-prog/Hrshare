@@ -7,6 +7,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.client.RestTemplate;
 
+/**
+ * Controller for handling request on the frontend of the application.
+ */
 @Controller
 public class HrshareController {
 
