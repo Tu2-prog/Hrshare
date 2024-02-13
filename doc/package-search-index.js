@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.tu2.hrshare"},{"l":"com.tu2.hrshare.employee"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.tu2.hrshare"},{"l":"com.tu2.hrshare.employee"},{"l":"com.tu2.hrshare.frontend_controllers"}];updateSearchResults();
