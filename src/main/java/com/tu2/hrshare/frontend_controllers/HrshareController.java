@@ -22,8 +22,8 @@ public class HrshareController {
         return "index";
     }
 
-    @GetMapping("/about")
-    public String about(){
-        return "about";
+    @GetMapping("/create")
+    public String create(){
+        return "create";
     }
 }
