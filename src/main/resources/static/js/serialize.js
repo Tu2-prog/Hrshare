@@ -10,5 +10,15 @@ function createEmployeeJSON() {
     }
 
     var jsonData = JSON.stringify(formData);
-    console.log(jsonData); // You can do anything with jsonData, e.g., send it to the server via AJAX
+
+    fetch('http://localhost:8080/api/v1/new/employee', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: jsonData
+    })
+       .then(response => response.json())
+       .then(response => console.log(JSON.stringify(response)))
 }
