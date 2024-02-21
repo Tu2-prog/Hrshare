@@ -1,7 +1,6 @@
 package com.tu2.hrshare.frontend_controllers;
 
 import com.tu2.hrshare.employee.Employee;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
