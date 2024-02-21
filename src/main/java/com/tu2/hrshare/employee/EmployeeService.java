@@ -32,6 +32,13 @@ public class EmployeeService {
     }
 
     /**
+     * Helper function to get a single employee by id.
+     * @param id The id of the desired employee.
+     * @return Optional<Employee>
+     */
+    public Optional<Employee> getEmployeeById(Long id) { return  employeeRepository.findEmployeeById(id); }
+
+    /**
      * Insert a new employee object into the database.
      * @param employee The new employee to be added into the database.
      */

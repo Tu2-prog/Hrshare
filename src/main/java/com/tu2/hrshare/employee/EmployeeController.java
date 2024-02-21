@@ -1,12 +1,10 @@
 package com.tu2.hrshare.employee;
 
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import java.util.Optional;
 
 /**
  * Controller class handling requests to interact with the Employee database.
@@ -31,6 +29,17 @@ public class EmployeeController {
     @GetMapping("/api/v1/employees")
     public List<Employee> getEmployees() {
         return employeeService.getEmployees();
+    }
+
+    /**
+     * Endpoint for retrieving a single employee from the database
+     * @param id Path variable to determine the correct employee.
+     * @return Optional<Employee>
+     */
+    @GetMapping("/api/v1/employee/{id}")
+    public ResponseEntity<Employee> getSingleEmployee(@PathVariable Long id){
+        Optional<Employee> employee = employeeService.getEmployeeById(id);
+        return employee.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     /***

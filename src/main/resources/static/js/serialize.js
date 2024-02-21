@@ -2,11 +2,9 @@ function createEmployeeJSON() {
     var form = document.getElementById('employeeForm');
     var formData = {};
 
-    for (var i = 0; i < form.elements.length; i++) {
-        var element = form.elements[i];
-        if (element.name) {
-            formData[element.name] = element.value;
-        }
+    for(let element of form.elements){
+        if(element.name){
+        formData[element.name] = element.value;}
     }
 
     var jsonData = JSON.stringify(formData);
