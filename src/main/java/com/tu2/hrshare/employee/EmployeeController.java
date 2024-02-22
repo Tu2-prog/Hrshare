@@ -50,5 +50,30 @@ public class EmployeeController {
     public void postEmployee(@RequestBody Employee employee) {        
         employeeService.addNewEmployee(employee);
     }
+
+    /**
+     * Endpoint to update a whole employee or update it partially and save it in the database.
+     * @param id The unique identifier of the respective employee.
+     * @param updatedEmployee The employee with possibly new data that is used to update the database entry.
+     * @return Updated element or error code if the object cannot be found.
+     */
+    @PatchMapping("/api/v1/update/employee/{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee updatedEmployee) {
+        Optional<Employee> employeeOptional = employeeService.getEmployeeById(id);
+
+        if (employeeOptional.isPresent()) {
+            Employee employee = employeeOptional.get();
+
+            employee.setName(updatedEmployee.getName());
+            employee.setEmail(updatedEmployee.getEmail());
+            employee.setDateOfBirth(updatedEmployee.getDateOfBirth());
+
+            employeeService.updateEmployee(employee);
+
+            return ResponseEntity.ok(employee);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
     
 }
