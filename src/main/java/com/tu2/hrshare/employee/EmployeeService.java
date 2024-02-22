@@ -1,5 +1,6 @@
 package com.tu2.hrshare.employee;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +29,9 @@ public class EmployeeService {
      * @return List<Employee>
      */
     public List<Employee> getEmployees() {
-        return employeeRepository.findAll();
+        List<Employee> employees = employeeRepository.findAll();
+        employees.sort(Comparator.comparingLong(Employee::getId));
+        return employees;
     }
 
     /**
@@ -48,5 +51,23 @@ public class EmployeeService {
             throw new IllegalStateException("E-Mail taken");
         }
         employeeRepository.save(employee);
+    }
+
+    public void updateEmployee(Employee updatedEmployee) {
+        // Check if the employee exists in the database
+        Optional<Employee> existingEmployeeOptional = employeeRepository.findById(updatedEmployee.getId());
+
+        if (existingEmployeeOptional.isPresent()) {
+            Employee existingEmployee = existingEmployeeOptional.get();
+
+            // Update the fields of the existing employee with the new values
+            existingEmployee.setName(updatedEmployee.getName());
+            existingEmployee.setName(updatedEmployee.getName());
+            existingEmployee.setAge(updatedEmployee.getAge());
+            existingEmployee.setEmail(updatedEmployee.getEmail());
+            existingEmployee.setDateOfBirth(updatedEmployee.getDateOfBirth());
+            // Save the updated employee to the database
+            employeeRepository.save(existingEmployee);
+        }
     }
 }
