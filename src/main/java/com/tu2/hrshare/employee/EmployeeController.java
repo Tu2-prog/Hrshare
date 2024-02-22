@@ -55,7 +55,7 @@ public class EmployeeController {
      * Endpoint to update a whole employee or update it partially and save it in the database.
      * @param id The unique identifier of the respective employee.
      * @param updatedEmployee The employee with possibly new data that is used to update the database entry.
-     * @return
+     * @return Updated element or error code if the object cannot be found.
      */
     @PatchMapping("/api/v1/update/employee/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee updatedEmployee) {
