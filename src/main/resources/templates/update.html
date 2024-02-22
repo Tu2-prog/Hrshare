@@ -31,26 +31,31 @@
     <h1>Employee Detail</h1>
     <form id="employeeForm">
         <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" class="form-control" id="name" th:value="${employee.name}"/>
+            <label for="employeeId">Id:</label>
+            <input type="text" class="form-control" id="employeeId" th:value="${employee.id}" name="employeeId" readonly="readonly"/>
         </div>
         <div class="form-group">
-            <label for="dateOfBirth">Date of Birth:</label>
-            <input type="text" class="form-control" id="dateOfBirth" th:value="${employee.dateOfBirth}"/>
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" id="name" th:value="${employee.name}" name="name"/>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" class="form-control" id="email" th:value="${employee.email}"/>
+            <input type="email" class="form-control" id="email" th:value="${employee.email}" name="email"/>
+        </div>
+        <div class="form-group">
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="text" class="form-control" id="dateOfBirth" th:value="${employee.dateOfBirth}" name="dateOfBirth"/>
         </div>
         <div class="form-group">
             <label for="age">Age:</label>
-            <input type="number" class="form-control" id="age" th:value="${employee.age}"/>
+            <input type="number" class="form-control" id="age" th:value="${employee.age}" readonly="readonly"/>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="button" class="btn btn-primary" th:onclick="updateEmployee()" id="submitButton">Submit</button>
     </form>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script th:src="@{/js/serialize.js}"></script>
 </body>
 </html>
