@@ -70,4 +70,12 @@ public class EmployeeService {
             employeeRepository.save(existingEmployee);
         }
     }
+
+    public void deleteEmployeeId(Long id){
+        Optional<Employee> employee = this.getEmployeeById(id);
+        if(employee.isPresent()){
+            Employee targetEmployee = employee.get();
+            employeeRepository.delete(targetEmployee);
+        }
+    }
 }

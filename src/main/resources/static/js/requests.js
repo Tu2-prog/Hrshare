@@ -45,3 +45,18 @@ function updateEmployee() {
     .then(response => response.json())
     .then(response => window.location.reload())
 }
+
+function deleteEmployee() {
+    var employeeId = document.getElementById('id');
+    employeeId = employeeId.textContent;
+    var url = 'http://localhost:8080/api/v1/delete/employee/' + employeeId;
+
+    fetch(url, {
+        method: 'DELETE',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => window.location.reload())
+}

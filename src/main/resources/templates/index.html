@@ -46,14 +46,14 @@
                 </thead>
                 <tbody>
                 <tr th:each="employee : ${employees}">
-                    <td class="col-md-1" th:text="${employee.id}" style="text-align:center;">1810</td>
-                    <td class="col-md-2" th:text="${employee.name}" style="text-align:center;">Sukhpreet</td>
-                    <td class="col-md-2" th:text="${employee.dateOfBirth}" style="text-align:center;">Singh</td>
-                    <td class="col-md-3" th:text="${employee.email}" style="text-align:center;">panesar.pb08@gmail.com</td>
-                    <td class="col-md-2" th:text="${employee.age}" style="text-align: center;">13</td>
-                    <td class="col-md-4" style="text-align: center;">
+                    <td id="id" name="id" class="col-md-1" th:text="${employee.id}" style="text-align:center;">1810</td>
+                    <td id="name" name="name" class="col-md-2" th:text="${employee.name}" style="text-align:center;">Sukhpreet</td>
+                    <td id="dateOfBirth" name="dateOfBirth" class="col-md-2" th:text="${employee.dateOfBirth}" style="text-align:center;">Singh</td>
+                    <td id="email" name="email" class="col-md-3" th:text="${employee.email}" style="text-align:center;">panesar.pb08@gmail.com</td>
+                    <td id="age" name="age" class="col-md-2" th:text="${employee.age}" style="text-align: center;">13</td>
+                    <td id="actions" class="col-md-4" style="text-align: center;">
                         <a th:href="@{/update/{id}(id=${employee.id})}" class="btn-sm btn-info text-white" role="button">DETAILS</a>
-                        <a th:href="@{/delete/{id}(id=${employee.id})}" class="btn-sm btn-danger text-white" role="button">DELETE</a>
+                        <button onclick="deleteEmployee()" class="btn-sm btn-danger text-white" role="button">DELETE</button>
                     </td>
                 </tr>
                 </tbody>
@@ -68,5 +68,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+<script th:src="@{/js/requests.js}"></script>
 </body>
 </html>

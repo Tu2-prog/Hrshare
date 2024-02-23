@@ -75,5 +75,15 @@ public class EmployeeController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    /**
+     * DeleteMapping to delete an employee by ID.
+     * After deletion, it redirects to the home page.
+     * @param id The ID of the employee to delete.
+     */
+    @DeleteMapping("api/v1/delete/employee/{id}")
+    public void deleteEmployee(@PathVariable Long id) {
+        employeeService.deleteEmployeeId(id);
+    }
     
 }
