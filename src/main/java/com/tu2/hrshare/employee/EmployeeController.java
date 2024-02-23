@@ -24,7 +24,7 @@ public class EmployeeController {
 
     /**
      * Endpoint for retrieving all employees from the database.
-     * @return List<Employee>
+     * @return List Employee
      */
     @GetMapping("/api/v1/employees")
     public List<Employee> getEmployees() {
@@ -34,7 +34,7 @@ public class EmployeeController {
     /**
      * Endpoint for retrieving a single employee from the database
      * @param id Path variable to determine the correct employee.
-     * @return Optional<Employee>
+     * @return Optional Employee
      */
     @GetMapping("/api/v1/employee/{id}")
     public ResponseEntity<Employee> getSingleEmployee(@PathVariable Long id){

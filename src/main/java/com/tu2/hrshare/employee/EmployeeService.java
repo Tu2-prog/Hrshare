@@ -26,7 +26,7 @@ public class EmployeeService {
 
     /**
      * Function to get all employees in the database.
-     * @return List<Employee>
+     * @return List Employee
      */
     public List<Employee> getEmployees() {
         List<Employee> employees = employeeRepository.findAll();
@@ -37,7 +37,7 @@ public class EmployeeService {
     /**
      * Helper function to get a single employee by id.
      * @param id The id of the desired employee.
-     * @return Optional<Employee>
+     * @return Optional Employee
      */
     public Optional<Employee> getEmployeeById(Long id) { return  employeeRepository.findEmployeeById(id); }
 
