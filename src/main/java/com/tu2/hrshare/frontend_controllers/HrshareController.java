@@ -5,11 +5,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
+
+/**
+ * Controller for handling request on the frontend of the application.
+ */
 @Controller
 public class HrshareController {
-
     @GetMapping("/")
     public  String index(Model model){
         RestTemplate restTemplate = new RestTemplate();
@@ -19,8 +23,17 @@ public class HrshareController {
         return "index";
     }
 
-    @GetMapping("/about")
-    public String about(){
-        return "about";
+    @GetMapping("/create")
+    public String create(){
+        return "create";
+    }
+
+    @GetMapping("/update/{id}")
+    public  String update(@PathVariable Long id, Model model){
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<Employee> responseEntity = restTemplate.getForEntity("http://localhost:8080/api/v1/employee/{id}", Employee.class, id);
+        Employee employee = responseEntity.getBody();
+        model.addAttribute("employee", employee);
+        return "update";
     }
 }
