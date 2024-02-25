@@ -2,6 +2,7 @@ package com.tu2.hrshare.employee;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -65,8 +66,6 @@ public class Employee {
         this.email = email;
         this.dateOfBirth = dateOfBirth;
     }
-
-
     
     /** Getter function for ID
      * @return long
@@ -147,6 +146,16 @@ public class Employee {
         this.age = age;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(id, employee.id) &&
+                Objects.equals(name, employee.name) &&
+                Objects.equals(email, employee.email) &&
+                Objects.equals(dateOfBirth, employee.dateOfBirth);
+    }
     
     /** Instance operation to print out the object's attributes and its values.
      * @return String
